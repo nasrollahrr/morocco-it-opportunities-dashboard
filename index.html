@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tableau de bord des admissions Bac+2 et concours publics IT au Maroc, profil DTS Infrastructure Digitale.">
+  <title>Veille IT Maroc — Admissions & Concours</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { --ink:#102a43; --muted:#627d98; --line:#d9e2ec; --brand:#2463a7; --brand2:#0b7a75; --paper:#fff; --bg:#f4f7fb; --open:#087f5b; --closed:#c92a2a; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:linear-gradient(180deg,#eef5ff 0,#f8fafc 420px); color:var(--ink); font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; }
+    .shell { max-width:1440px; margin:auto; padding:28px 20px 48px; }
+    .hero { background:linear-gradient(135deg,#173f70,#2463a7 55%,#0b7a75); color:white; border-radius:24px; padding:28px; box-shadow:0 18px 50px rgba(23,63,112,.2); }
+    .eyebrow { font-size:.78rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:#bfdbfe; }
+    h1 { margin:.35rem 0 .55rem; font-size:clamp(1.8rem,4vw,3.15rem); line-height:1.08; }
+    .hero p { margin:0; max-width:920px; color:#e7f1fb; line-height:1.6; }
+    .updated { display:inline-flex; margin-top:18px; gap:8px; align-items:center; padding:8px 12px; background:rgba(255,255,255,.13); border:1px solid rgba(255,255,255,.22); border-radius:999px; font-size:.88rem; }
+    .panel { margin-top:22px; background:rgba(255,255,255,.92); border:1px solid rgba(217,226,236,.9); border-radius:20px; padding:18px; box-shadow:0 12px 35px rgba(16,42,67,.08); backdrop-filter:blur(10px); }
+    .tabs,.filters { display:flex; flex-wrap:wrap; gap:9px; }
+    button,.action { font:inherit; }
+    .tab,.filter { border:1px solid var(--line); background:#fff; color:#334e68; border-radius:12px; padding:10px 14px; font-weight:750; cursor:pointer; transition:.18s ease; }
+    .tab:hover,.filter:hover { transform:translateY(-1px); border-color:#9fb3c8; }
+    .tab.active { background:var(--ink); color:#fff; border-color:var(--ink); }
+    .filter.active { background:#e7f1fb; color:#124e85; border-color:#83b1df; }
+    .controls { display:grid; grid-template-columns:minmax(230px,1fr) auto; gap:14px; align-items:center; margin-top:16px; }
+    .search { position:relative; }
+    .search span { position:absolute; left:14px; top:50%; transform:translateY(-50%); color:#829ab1; }
+    input { width:100%; padding:12px 14px 12px 42px; border:1px solid var(--line); border-radius:12px; background:#fff; color:var(--ink); outline:none; }
+    input:focus { border-color:#5b9bd5; box-shadow:0 0 0 4px rgba(91,155,213,.13); }
+    .kpis { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:18px 0; }
+    .kpi { border:1px solid var(--line); background:#fff; border-radius:16px; padding:17px; }
+    .kpi-label { color:var(--muted); font-size:.78rem; font-weight:800; text-transform:uppercase; letter-spacing:.07em; }
+    .kpi-value { margin-top:4px; font-size:2rem; line-height:1; font-weight:850; }
+    .kpi.open .kpi-value { color:var(--open); } .kpi.closed .kpi-value { color:var(--closed); }
+    .results-head { display:flex; align-items:end; justify-content:space-between; gap:12px; margin:18px 2px 10px; }
+    .results-head h2 { margin:0; font-size:1.16rem; } .results-head p { margin:3px 0 0; color:var(--muted); font-size:.9rem; }
+    .table-wrap { overflow:auto; border:1px solid var(--line); border-radius:15px; background:#fff; }
+    table { width:100%; min-width:1160px; border-collapse:collapse; }
+    th { position:sticky; top:0; z-index:1; padding:12px 13px; background:#edf4fb; color:#243b53; font-size:.76rem; text-transform:uppercase; letter-spacing:.035em; text-align:left; border-bottom:1px solid #bcccdc; }
+    td { padding:14px 13px; vertical-align:top; border-bottom:1px solid #e8eef4; font-size:.88rem; line-height:1.42; }
+    tbody tr:hover { background:#f8fbff; }
+    .primary { font-weight:800; color:#173f70; } .muted { color:var(--muted); }
+    .badge { display:inline-flex; align-items:center; gap:6px; border-radius:999px; padding:5px 9px; font-size:.77rem; font-weight:850; white-space:nowrap; }
+    .badge.open { background:#dff7ed; color:#076149; } .badge.closed { background:#fff0f0; color:#a61e1e; }
+    .actions { display:flex; gap:7px; flex-wrap:wrap; }
+    .action { display:inline-flex; align-items:center; justify-content:center; text-decoration:none; border-radius:10px; padding:8px 10px; font-size:.78rem; font-weight:800; white-space:nowrap; }
+    .action.primary-action { background:#2463a7; color:#fff; } .action.secondary { background:#edf2f7; color:#334e68; }
+    .action:hover { filter:brightness(.96); transform:translateY(-1px); }
+    .empty { padding:50px 18px; text-align:center; color:var(--muted); }
+    footer { margin-top:20px; color:#627d98; font-size:.83rem; line-height:1.55; text-align:center; }
+    @media (max-width:780px) { .shell{padding:14px 12px 34px}.hero{padding:22px 18px;border-radius:18px}.panel{padding:13px}.controls{grid-template-columns:1fr}.filters{display:grid;grid-template-columns:1fr}.filter{width:100%}.kpis{grid-template-columns:1fr}.kpi{display:flex;align-items:center;justify-content:space-between}.kpi-value{margin:0}.tabs{display:grid;grid-template-columns:1fr 1fr}.tab{padding:10px 8px;font-size:.85rem}.results-head{align-items:start;flex-direction:column} }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow">Veille académique & carrière</div>
+      <h1>Opportunités IT au Maroc</h1>
+      <p>Admissions Bac+2 / passerelle S5 et concours de Technicien de 3e grade — filtrés pour un DTS Infrastructure Digitale, option Systèmes & Réseaux. Les disciplines non informatiques sont exclues.</p>
+      <div class="updated">● Vérifié le 29 août 2026 · Priorité Tanger–Tétouan–Al Hoceïma</div>
+    </section>
+
+    <section class="panel" aria-label="Tableau de bord">
+      <nav class="tabs" aria-label="Type d'opportunité">
+        <button class="tab active" data-tab="schools">🎓 Écoles & Admissions</button>
+        <button class="tab" data-tab="jobs">🏛️ Emploi Public</button>
+      </nav>
+
+      <div class="controls">
+        <label class="search"><span>⌕</span><input id="search" type="search" placeholder="Rechercher une ville, spécialité, établissement…" aria-label="Rechercher"></label>
+        <div class="filters" aria-label="Filtre de statut">
+          <button class="filter active" data-status="all">Tous</button>
+          <button class="filter" data-status="open">🟢 Ouverts uniquement</button>
+          <button class="filter" data-status="closed">🔴 Clôturés</button>
+        </div>
+      </div>
+
+      <div class="kpis">
+        <article class="kpi"><div class="kpi-label">Total vérifié</div><div class="kpi-value" id="kpi-total">0</div></article>
+        <article class="kpi open"><div class="kpi-label">Actuellement ouverts</div><div class="kpi-value" id="kpi-open">0</div></article>
+        <article class="kpi closed"><div class="kpi-label">Clôturés</div><div class="kpi-value" id="kpi-closed">0</div></article>
+      </div>
+
+      <div class="results-head">
+        <div><h2 id="section-title">Écoles & Admissions</h2><p id="result-count"></p></div>
+        <p>Cliquer sur « Candidater » ou « Voir l'avis » ouvre la page officielle.</p>
+      </div>
+      <div class="table-wrap" id="table-wrap"></div>
+    </section>
+    <footer>Les mentions « équivalence à confirmer » signifient que le diplôme demandé est indiqué comme « équivalent », sans reconnaissance automatique explicite du DTS dans l'avis. Toujours relire l'avis officiel avant dépôt.</footer>
+  </main>
+
+  <script>
+    const schools = [
+      {org:"EST Tétouan",city:"Tétouan",degree:"DBT",spec:"Ingénierie des Données & Business Intelligence (IDBI)",status:"open",opening:"13/08/2026",deadline:"06/09/2026",exam:"Écrit 12/09 · Oral 17–18/09",link:"https://est.uae.ma/preinscription_bachelor/public/index",source:"https://www.est.uae.ma/actualite.php?id=81",notes:"Priorité régionale. DUT ou diplôme équivalent, mention exigée; équivalence du DTS à faire valider."},
+      {org:"EST Kénitra",city:"Kénitra",degree:"DBT",spec:"Génie Informatique et Gouvernance Digitale (GIGD)",status:"open",opening:"31/07/2026",deadline:"30/08/2026 à 12h",exam:"Non annoncé",link:"https://estk.uit.ac.ma/candidatureDBT/",source:"https://est.uit.ac.ma/concours-dacces-au-diplome-de-bachelor-en-technologie-dbt-annee-universitaire-2026-2027/",notes:"Bac+2, DUT ou diplôme d'État reconnu équivalent, spécialité compatible."},
+      {org:"EST Kénitra",city:"Kénitra",degree:"DBT",spec:"Cybersécurité, Cloud et Intelligence Artificielle (2CIA)",status:"open",opening:"31/07/2026",deadline:"30/08/2026 à 12h",exam:"Non annoncé",link:"https://estk.uit.ac.ma/candidatureDBT/",source:"https://est.uit.ac.ma/concours-dacces-au-diplome-de-bachelor-en-technologie-dbt-annee-universitaire-2026-2027/",notes:"Bac+2, DUT ou diplôme d'État reconnu équivalent, spécialité compatible."},
+      {org:"EST Salé",city:"Salé",degree:"DBT",spec:"Ingénierie des Applications Web et Mobile",status:"open",opening:"29/07/2026",deadline:"31/08/2026",exam:"À annoncer",link:"https://preins.um5.ac.ma/",source:"https://est.um5.ac.ma/actualite-18/",notes:"DUT ou diplôme reconnu équivalent."},
+      {org:"EST Salé",city:"Salé",degree:"DBT",spec:"Big Data et Intelligence Artificielle",status:"open",opening:"29/07/2026",deadline:"31/08/2026",exam:"À annoncer",link:"https://preins.um5.ac.ma/",source:"https://est.um5.ac.ma/actualite-18/",notes:"DUT ou diplôme reconnu équivalent."},
+      {org:"EST Fès",city:"Fès",degree:"DBT",spec:"Génie Logiciel",status:"open",opening:"23/07/2026",deadline:"10/09/2026 à 14h",exam:"Écrit 19/09/2026",link:"https://www.est-usmba.ac.ma/avis-de-candidature-par-diplome-de-bachelor-en-technologie-dbt-a-u-2026-2027/",source:"https://www.est-usmba.ac.ma/avis-de-candidature-par-diplome-de-bachelor-en-technologie-dbt-a-u-2026-2027/",notes:"Le descriptif cite notamment le Technicien Spécialisé en informatique; formulaire par filière sur la page."},
+      {org:"EST Fès",city:"Fès",degree:"DBT",spec:"Cybersécurité des Systèmes Intelligents Connectés",status:"open",opening:"23/07/2026",deadline:"10/09/2026 à 14h",exam:"Écrit 19/09/2026",link:"https://www.est-usmba.ac.ma/avis-de-candidature-par-diplome-de-bachelor-en-technologie-dbt-a-u-2026-2027/",source:"https://www.est-usmba.ac.ma/avis-de-candidature-par-diplome-de-bachelor-en-technologie-dbt-a-u-2026-2027/",notes:"DUT ou diplôme équivalent compatible; formulaire par filière sur la page."},
+      {org:"EST Sidi Bennour",city:"Sidi Bennour",degree:"DBT",spec:"Cyber Sécurité et Technologies Cloud (CSTC)",status:"open",opening:"Non affichée",deadline:"15/09/2026",exam:"Non annoncé",link:"https://www.estsb.ucd.ac.ma/ouverture-des-pre-inscriptionsaux-diplomes-du-bachelor-en-technologieannee-universitaire-2026-2027/",source:"https://www.estsb.ucd.ac.ma/ouverture-des-pre-inscriptionsaux-diplomes-du-bachelor-en-technologieannee-universitaire-2026-2027/",notes:"Bac+2 ou équivalent dans un domaine compatible."},
+      {org:"EST Sidi Bennour",city:"Sidi Bennour",degree:"DBT",spec:"Ingénierie des Systèmes Informatiques et Technologies Web (ISITW)",status:"open",opening:"Non affichée",deadline:"15/09/2026",exam:"Non annoncé",link:"https://www.estsb.ucd.ac.ma/ouverture-des-pre-inscriptionsaux-diplomes-du-bachelor-en-technologieannee-universitaire-2026-2027/",source:"https://www.estsb.ucd.ac.ma/ouverture-des-pre-inscriptionsaux-diplomes-du-bachelor-en-technologieannee-universitaire-2026-2027/",notes:"Bac+2 ou équivalent dans un domaine compatible."},
+      {org:"EST Meknès",city:"Meknès",degree:"Bachelor Universitaire",spec:"Ingénierie Logicielle",status:"open",opening:"03/08/2026",deadline:"31/08/2026",exam:"Sélection sur dossier",link:"https://candidature.umi.ac.ma",source:"https://www.est.umi.ac.ma/categorie-actualite/vie-etudiante/",notes:"Bac+2 ou diplôme équivalent; équivalence du DTS à vérifier sur la plateforme."},
+      {org:"EST Meknès",city:"Meknès",degree:"Bachelor Universitaire",spec:"Intelligence Artificielle et Sciences des Données",status:"open",opening:"03/08/2026",deadline:"31/08/2026",exam:"Sélection sur dossier",link:"https://candidature.umi.ac.ma",source:"https://www.est.umi.ac.ma/categorie-actualite/vie-etudiante/",notes:"Bac+2 ou diplôme équivalent; équivalence du DTS à vérifier sur la plateforme."},
+      {org:"EST Meknès",city:"Meknès",degree:"Bachelor Universitaire",spec:"Ingénierie du Développement Mobile et Internet des Objets",status:"open",opening:"03/08/2026",deadline:"31/08/2026",exam:"Sélection sur dossier",link:"https://candidature.umi.ac.ma",source:"https://www.est.umi.ac.ma/categorie-actualite/vie-etudiante/",notes:"Bac+2 ou diplôme équivalent; équivalence du DTS à vérifier sur la plateforme."},
+      {org:"Faculté des Sciences d'Agadir",city:"Agadir",degree:"Licence d'Excellence",spec:"Ingénierie Logicielle",status:"open",opening:"01/08/2026",deadline:"06/09/2026",exam:"21–26/09/2026",link:"https://preinscription.uiz.ac.ma/",source:"https://www.licence-professionnelle-maroc.com/2026/08/licence-dexcellence-fs-agadir-2026-2027.html",notes:"Bac+2 DEUG ou équivalent en informatique/domaine connexe."},
+      {org:"Faculté des Sciences d'Agadir",city:"Agadir",degree:"Licence d'Excellence",spec:"Analytique des Données et Intelligence Artificielle",status:"open",opening:"01/08/2026",deadline:"06/09/2026",exam:"21–26/09/2026",link:"https://preinscription.uiz.ac.ma/",source:"https://www.licence-professionnelle-maroc.com/2026/08/licence-dexcellence-fs-agadir-2026-2027.html",notes:"Bac+2 DEUG ou équivalent en informatique/domaine connexe."},
+      {org:"Faculté des Sciences d'Agadir",city:"Agadir",degree:"Licence d'Excellence",spec:"Ingénierie Informatique et Systèmes Embarqués",status:"open",opening:"01/08/2026",deadline:"06/09/2026",exam:"21–26/09/2026",link:"https://preinscription.uiz.ac.ma/",source:"https://www.licence-professionnelle-maroc.com/2026/08/licence-dexcellence-fs-agadir-2026-2027.html",notes:"Bac+2 DEUG ou équivalent en informatique/domaine connexe."},
+      {org:"Faculté des Sciences d'El Jadida",city:"El Jadida",degree:"Licence d'Excellence",spec:"Électronique et Informatique Industrielle",status:"open",opening:"05/08/2026",deadline:"06/09/2026",exam:"Non annoncé",link:"https://e-candidature.ucd.ac.ma/lexc/formations",source:"https://www.fs.ucd.ac.ma/licence-dexcellence/",notes:"Bac+2 ou équivalent compatible; prérequis et équivalence du DTS à confirmer."},
+      {org:"FS Ben M'Sik",city:"Casablanca",degree:"Licence d'Excellence",spec:"Intelligence Artificielle",status:"open",opening:"30/07/2026",deadline:"31/08/2026 à minuit",exam:"Non annoncé",link:"https://fsb.univh2c.ma/licenceexcellence/index.php?action=viriflogin&controller=home",source:"https://www.licence-professionnelle-maroc.com/2026/07/licence-dexcellence-fs-ben-msik-2026-2027.html",notes:"DEUG MIP/INFO, DEUG IA, DEUST MIP ou équivalent; équivalence du DTS à confirmer."},
+      {org:"Faculté Polydisciplinaire de Khouribga",city:"Khouribga",degree:"Licence d'Excellence",spec:"Systèmes d'Information et Intelligence Artificielle",status:"open",opening:"07/08/2026",deadline:"07/09/2026",exam:"Non annoncé",link:"https://www.fpk.ac.ma/preinscription/",source:"https://www.licence-professionnelle-maroc.com/2026/08/licence-dexcellence-fp-khouribga-2026.html",notes:"DEUG Info/Math, DEUST MIP, DEUP Info ou équivalent; équivalence du DTS à confirmer."},
+      {org:"Faculté Polydisciplinaire de Sidi Bennour",city:"Sidi Bennour",degree:"Licence S5",spec:"Cyber Sécurité et Confiance Numérique",status:"open",opening:"12/08/2026",deadline:"13/09/2026",exam:"Dossier uniquement",link:"https://e-candidature.ucd.ac.ma/",source:"https://www.fpsb.ucd.ac.ma/?p=23170",notes:"Adéquation forte: DTS en informatique explicitement accepté; résultats après le 15/09."},
+      {org:"Faculté Polydisciplinaire de Sidi Bennour",city:"Sidi Bennour",degree:"Licence S5",spec:"Business Intelligence et Big Data",status:"open",opening:"12/08/2026",deadline:"13/09/2026",exam:"Dossier uniquement",link:"https://e-candidature.ucd.ac.ma/",source:"https://www.fpsb.ucd.ac.ma/?p=23170",notes:"Adéquation forte: DTS en informatique explicitement accepté; résultats après le 15/09."},
+      {org:"Faculté Polydisciplinaire de Sidi Bennour",city:"Sidi Bennour",degree:"Licence S5",spec:"Développement Logiciel",status:"open",opening:"12/08/2026",deadline:"13/09/2026",exam:"Dossier uniquement",link:"https://e-candidature.ucd.ac.ma/",source:"https://www.fpsb.ucd.ac.ma/?p=23170",notes:"Adéquation forte: DTS en informatique explicitement accepté; résultats après le 15/09."},
+      {org:"Faculté Polydisciplinaire de Sidi Bennour",city:"Sidi Bennour",degree:"Licence S5",spec:"Géoinformatique Appliquée",status:"open",opening:"12/08/2026",deadline:"13/09/2026",exam:"Dossier uniquement",link:"https://e-candidature.ucd.ac.ma/",source:"https://www.fpsb.ucd.ac.ma/?p=23170",notes:"Filière numérique géospatiale; DTS en informatique explicitement accepté."}
+    ];
+
+    const jobs = [
+      {org:"Province de Chichaoua – Commune ASSIF EL MAL",city:"Chichaoua",grade:"Technicien 3e grade · Échelle 9",spec:"Développement / Réseau / Système informatique",posts:2,status:"open",publication:"17/08/2026",deadline:"10/09/2026 à 16h30",exam:"20/09/2026",link:"https://www.emploi-public.ma/fr/concours/details/6e995ea7-7465-41ef-96d2-8777effec666",notes:"C43279/26. Avis multi-spécialités: choisir l'option informatique; 2 postes au total."},
+      {org:"Province de Chichaoua – Commune IMINDOUNIT",city:"Chichaoua",grade:"Technicien 3e grade · Échelle 9",spec:"Développement / Système / Réseaux informatiques",posts:2,status:"open",publication:"28/08/2026",deadline:"17/09/2026 à 16h30",exam:"27/09/2026",link:"https://www.emploi-public.ma/fr/concours/details/5d458ac0-79d2-4fa6-bcc2-e95e8d29bd6d",notes:"C43324/26. 2 postes au total."},
+      {org:"Province de Chichaoua – Commune GMASSA",city:"Chichaoua",grade:"Technicien 3e grade · Échelle 9",spec:"Développement / Système / Réseaux informatiques",posts:2,status:"open",publication:"28/08/2026",deadline:"24/09/2026 à 16h30",exam:"04/10/2026",link:"https://www.emploi-public.ma/fr/concours/details/bf375814-b71a-478a-bb43-2e24de7377e0",notes:"C43325/26. 2 postes au total."},
+      {org:"Province de Chichaoua – Commune NFIFA",city:"Chichaoua",grade:"Technicien 3e grade · Échelle 9",spec:"Développement / Système / Réseaux informatiques",posts:1,status:"open",publication:"28/08/2026",deadline:"09/10/2026 à 16h30",exam:"25/10/2026",link:"https://www.emploi-public.ma/fr/concours/details/a3367690-b2a8-4791-98cf-bfdb6af517b2",notes:"C43327/26."},
+      {org:"Province de Tétouan – Commune OUED LAOU",city:"Tétouan",grade:"Technicien 3e grade · Échelle 9",spec:"Maintenance informatique et réseaux",posts:4,status:"closed",publication:"10/08/2026",deadline:"28/08/2026 à 16h30",exam:"13/09/2026",link:"https://www.emploi-public.ma/fr/concours/details/908112c6-5a64-43dc-862f-fbb7d80a6f01",notes:"C43212/26. Priorité régionale; avis multi-spécialités, 4 postes au total."},
+      {org:"Ministère des Affaires étrangères",city:"National",grade:"Technicien 3e grade · Échelle 9",spec:"Réseaux informatiques / Développement informatique",posts:32,status:"closed",publication:"25/07/2026",deadline:"10/08/2026 à 16h30",exam:"27/09/2026",link:"https://www.emploi-public.ma/fr/concours/details/4e64e78f-621d-4e95-a829-a8b22986502a",notes:"C43033/26. Avis multi-spécialités, 32 postes au total."},
+      {org:"Province d'Essaouira – Commune KORIMATE",city:"Essaouira",grade:"Technicien 3e grade · Échelle 9",spec:"Informatique",posts:2,status:"closed",publication:"21/07/2026",deadline:"17/08/2026 à 16h30",exam:"06/09/2026",link:"https://www.emploi-public.ma/fr/concours/details/5cc415a7-19d4-48b3-aee7-ec03cae174f2",notes:"C42966/26. Avis multi-spécialités, 2 postes au total."},
+      {org:"Province de Settat – Commune MRIZIGUE",city:"Settat",grade:"Technicien 3e grade · Échelle 9",spec:"Informatique et réseaux informatiques",posts:2,status:"closed",publication:"20/02/2026",deadline:"27/03/2026 à 16h30",exam:"10/05/2026",link:"https://www.emploi-public.ma/fr/concours/details/c1060482-1c26-4ddd-8e04-74522a435d83",notes:"C41051/26. Conservé comme historique vérifié."}
+    ];
+
+    const state = { tab:"schools", status:"all", query:"" };
+    const norm = value => String(value ?? "").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+    const statusBadge = status => `<span class="badge ${status}">${status === "open" ? "● Ouvert" : "● Clôturé"}</span>`;
+    const safeUrl = value => /^https:\/\//.test(value) ? value : "#";
+
+    function schoolTable(rows) {
+      if (!rows.length) return `<div class="empty">Aucune admission ne correspond à ces filtres.</div>`;
+      return `<table><thead><tr><th>Établissement</th><th>Diplôme / spécialité</th><th>Statut</th><th>Calendrier</th><th>Conditions</th><th>Action</th></tr></thead><tbody>${rows.map(r=>`<tr>
+        <td><div class="primary">${r.org}</div><div class="muted">${r.city}</div></td>
+        <td><div class="primary">${r.spec}</div><div class="muted">${r.degree}</div></td>
+        <td>${statusBadge(r.status)}</td>
+        <td><strong>Ouverture:</strong> ${r.opening}<br><strong>Limite:</strong> ${r.deadline}<br><strong>Épreuve:</strong> ${r.exam}</td>
+        <td>${r.notes}</td>
+        <td><div class="actions"><a class="action primary-action" target="_blank" rel="noopener" href="${safeUrl(r.link)}">Candidater ↗</a><a class="action secondary" target="_blank" rel="noopener" href="${safeUrl(r.source)}">Voir l'avis</a></div></td>
+      </tr>`).join("")}</tbody></table>`;
+    }
+
+    function jobTable(rows) {
+      if (!rows.length) return `<div class="empty">Aucun concours ne correspond à ces filtres.</div>`;
+      return `<table><thead><tr><th>Administration</th><th>Grade / spécialité</th><th>Postes</th><th>Statut</th><th>Calendrier</th><th>Notes</th><th>Action</th></tr></thead><tbody>${rows.map(r=>`<tr>
+        <td><div class="primary">${r.org}</div><div class="muted">${r.city}</div></td>
+        <td><div class="primary">${r.spec}</div><div class="muted">${r.grade}</div></td>
+        <td><strong>${r.posts}</strong></td><td>${statusBadge(r.status)}</td>
+        <td><strong>Publication:</strong> ${r.publication}<br><strong>Limite:</strong> ${r.deadline}<br><strong>Concours:</strong> ${r.exam}</td>
+        <td>${r.notes}</td>
+        <td><a class="action primary-action" target="_blank" rel="noopener" href="${safeUrl(r.link)}">Voir l'avis ↗</a></td>
+      </tr>`).join("")}</tbody></table>`;
+    }
+
+    function render() {
+      const all = state.tab === "schools" ? schools : jobs;
+      const query = norm(state.query);
+      const shown = all.filter(r => (state.status === "all" || r.status === state.status) && (!query || norm(Object.values(r).join(" ")).includes(query)));
+      document.getElementById("kpi-total").textContent = all.length;
+      document.getElementById("kpi-open").textContent = all.filter(r=>r.status==="open").length;
+      document.getElementById("kpi-closed").textContent = all.filter(r=>r.status==="closed").length;
+      document.getElementById("section-title").textContent = state.tab === "schools" ? "Écoles & Admissions" : "Emploi Public — Concours";
+      document.getElementById("result-count").textContent = `${shown.length} résultat${shown.length > 1 ? "s" : ""} affiché${shown.length > 1 ? "s" : ""}`;
+      document.getElementById("table-wrap").innerHTML = state.tab === "schools" ? schoolTable(shown) : jobTable(shown);
+    }
+
+    document.querySelectorAll(".tab").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll(".tab").forEach(b=>b.classList.remove("active"));btn.classList.add("active");state.tab=btn.dataset.tab;render();}));
+    document.querySelectorAll(".filter").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll(".filter").forEach(b=>b.classList.remove("active"));btn.classList.add("active");state.status=btn.dataset.status;render();}));
+    document.getElementById("search").addEventListener("input",event=>{state.query=event.target.value;render();});
+    render();
+  </script>
+</body>
+</html>

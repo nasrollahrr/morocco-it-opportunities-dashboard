@@ -58,13 +58,14 @@
       <div class="eyebrow">Veille académique & carrière</div>
       <h1>Opportunités IT au Maroc</h1>
       <p>Admissions Bac+2 / passerelle S5 et concours de Technicien de 3e grade — filtrés pour un DTS Infrastructure Digitale, option Systèmes & Réseaux. Les disciplines non informatiques sont exclues.</p>
-      <div class="updated">● Vérifié le 29 août 2026 · Priorité Tanger–Tétouan–Al Hoceïma</div>
+      <div class="updated">● Vérifié le 6 septembre 2026 · Priorité Tanger–Tétouan–Al Hoceïma</div>
     </section>
 
     <section class="panel" aria-label="Tableau de bord">
       <nav class="tabs" aria-label="Type d'opportunité">
         <button class="tab active" data-tab="schools">🎓 Écoles & Admissions</button>
         <button class="tab" data-tab="jobs">🏛️ Emploi Public</button>
+        <button class="tab" data-tab="offers">💼 Offres d’emploi IT</button>
       </nav>
 
       <div class="controls">
@@ -93,35 +94,42 @@
 
   <script>
     const schools = [
-      {org:"EST Tétouan",city:"Tétouan",degree:"DBT",spec:"Ingénierie des Données & Business Intelligence (IDBI)",status:"open",opening:"13/08/2026",deadline:"06/09/2026",exam:"Écrit 12/09 · Oral 17–18/09",link:"https://est.uae.ma/preinscription_bachelor/public/index",source:"https://www.est.uae.ma/actualite.php?id=81",notes:"Priorité régionale. DUT ou diplôme équivalent, mention exigée; équivalence du DTS à faire valider."},
-      {org:"EST Kénitra",city:"Kénitra",degree:"DBT",spec:"Génie Informatique et Gouvernance Digitale (GIGD)",status:"open",opening:"31/07/2026",deadline:"30/08/2026 à 12h",exam:"Non annoncé",link:"https://estk.uit.ac.ma/candidatureDBT/",source:"https://est.uit.ac.ma/concours-dacces-au-diplome-de-bachelor-en-technologie-dbt-annee-universitaire-2026-2027/",notes:"Bac+2, DUT ou diplôme d'État reconnu équivalent, spécialité compatible."},
-      {org:"EST Kénitra",city:"Kénitra",degree:"DBT",spec:"Cybersécurité, Cloud et Intelligence Artificielle (2CIA)",status:"open",opening:"31/07/2026",deadline:"30/08/2026 à 12h",exam:"Non annoncé",link:"https://estk.uit.ac.ma/candidatureDBT/",source:"https://est.uit.ac.ma/concours-dacces-au-diplome-de-bachelor-en-technologie-dbt-annee-universitaire-2026-2027/",notes:"Bac+2, DUT ou diplôme d'État reconnu équivalent, spécialité compatible."},
-      {org:"EST Salé",city:"Salé",degree:"DBT",spec:"Ingénierie des Applications Web et Mobile",status:"open",opening:"29/07/2026",deadline:"31/08/2026",exam:"À annoncer",link:"https://preins.um5.ac.ma/",source:"https://est.um5.ac.ma/actualite-18/",notes:"DUT ou diplôme reconnu équivalent."},
-      {org:"EST Salé",city:"Salé",degree:"DBT",spec:"Big Data et Intelligence Artificielle",status:"open",opening:"29/07/2026",deadline:"31/08/2026",exam:"À annoncer",link:"https://preins.um5.ac.ma/",source:"https://est.um5.ac.ma/actualite-18/",notes:"DUT ou diplôme reconnu équivalent."},
-      {org:"EST Fès",city:"Fès",degree:"DBT",spec:"Génie Logiciel",status:"open",opening:"23/07/2026",deadline:"10/09/2026 à 14h",exam:"Écrit 19/09/2026",link:"https://www.est-usmba.ac.ma/avis-de-candidature-par-diplome-de-bachelor-en-technologie-dbt-a-u-2026-2027/",source:"https://www.est-usmba.ac.ma/avis-de-candidature-par-diplome-de-bachelor-en-technologie-dbt-a-u-2026-2027/",notes:"Le descriptif cite notamment le Technicien Spécialisé en informatique; formulaire par filière sur la page."},
-      {org:"EST Fès",city:"Fès",degree:"DBT",spec:"Cybersécurité des Systèmes Intelligents Connectés",status:"open",opening:"23/07/2026",deadline:"10/09/2026 à 14h",exam:"Écrit 19/09/2026",link:"https://www.est-usmba.ac.ma/avis-de-candidature-par-diplome-de-bachelor-en-technologie-dbt-a-u-2026-2027/",source:"https://www.est-usmba.ac.ma/avis-de-candidature-par-diplome-de-bachelor-en-technologie-dbt-a-u-2026-2027/",notes:"DUT ou diplôme équivalent compatible; formulaire par filière sur la page."},
+      {org:"EST Tétouan",city:"Tétouan",degree:"DBT",spec:"Ingénierie des Données & Business Intelligence (IDBI)",status:"closed",opening:"13/08/2026",deadline:"06/09/2026",exam:"Écrit 12/09 · Oral 17–18/09",link:"https://est.uae.ma/preinscription_bachelor/public/index",source:"https://www.est.uae.ma/actualite.php?id=81",notes:"Priorité régionale. DUT ou diplôme équivalent, mention exigée; équivalence du DTS à faire valider."},
+      {org:"EST Kénitra",city:"Kénitra",degree:"DBT",spec:"Génie Informatique et Gouvernance Digitale (GIGD)",status:"closed",opening:"31/07/2026",deadline:"30/08/2026 à 12h",exam:"Non annoncé",link:"https://estk.uit.ac.ma/candidatureDBT/",source:"https://est.uit.ac.ma/concours-dacces-au-diplome-de-bachelor-en-technologie-dbt-annee-universitaire-2026-2027/",notes:"Bac+2, DUT ou diplôme d'État reconnu équivalent, spécialité compatible."},
+      {org:"EST Kénitra",city:"Kénitra",degree:"DBT",spec:"Cybersécurité, Cloud et Intelligence Artificielle (2CIA)",status:"closed",opening:"31/07/2026",deadline:"30/08/2026 à 12h",exam:"Non annoncé",link:"https://estk.uit.ac.ma/candidatureDBT/",source:"https://est.uit.ac.ma/concours-dacces-au-diplome-de-bachelor-en-technologie-dbt-annee-universitaire-2026-2027/",notes:"Bac+2, DUT ou diplôme d'État reconnu équivalent, spécialité compatible."},
+      {org:"EST Salé",city:"Salé",degree:"DBT",spec:"Ingénierie des Applications Web et Mobile",status:"closed",opening:"29/07/2026",deadline:"31/08/2026",exam:"À annoncer",link:"https://preins.um5.ac.ma/",source:"https://est.um5.ac.ma/actualite-18/",notes:"DUT ou diplôme reconnu équivalent."},
+      {org:"EST Salé",city:"Salé",degree:"DBT",spec:"Big Data et Intelligence Artificielle",status:"closed",opening:"29/07/2026",deadline:"31/08/2026",exam:"À annoncer",link:"https://preins.um5.ac.ma/",source:"https://est.um5.ac.ma/actualite-18/",notes:"DUT ou diplôme reconnu équivalent."},
+{org:"EST Fès",city:"Fès",degree:"DBT",spec:"Génie Logiciel",status:"closed",opening:"23/07/2026",deadline:"10/09/2026 à 14h",exam:"Écrit 19/09/2026",link:"https://www.est-usmba.ac.ma/avis-de-candidature-par-diplome-de-bachelor-en-technologie-dbt-a-u-2026-2027/",source:"https://www.est-usmba.ac.ma/avis-de-candidature-par-diplome-de-bachelor-en-technologie-dbt-a-u-2026-2027/",notes:"Le descriptif cite notamment le Technicien Spécialisé en informatique; formulaire par filière sur la page."},
+      {org:"EST Fès",city:"Fès",degree:"DBT",spec:"Cybersécurité des Systèmes Intelligents Connectés",status:"closed",opening:"23/07/2026",deadline:"10/09/2026 à 14h",exam:"Écrit 19/09/2026",link:"https://www.est-usmba.ac.ma/avis-de-candidature-par-diplome-de-bachelor-en-technologie-dbt-a-u-2026-2027/",source:"https://www.est-usmba.ac.ma/avis-de-candidature-par-diplome-de-bachelor-en-technologie-dbt-a-u-2026-2027/",notes:"DUT ou diplôme équivalent compatible; formulaire par filière sur la page."},
       {org:"EST Sidi Bennour",city:"Sidi Bennour",degree:"DBT",spec:"Cyber Sécurité et Technologies Cloud (CSTC)",status:"open",opening:"Non affichée",deadline:"15/09/2026",exam:"Non annoncé",link:"https://www.estsb.ucd.ac.ma/ouverture-des-pre-inscriptionsaux-diplomes-du-bachelor-en-technologieannee-universitaire-2026-2027/",source:"https://www.estsb.ucd.ac.ma/ouverture-des-pre-inscriptionsaux-diplomes-du-bachelor-en-technologieannee-universitaire-2026-2027/",notes:"Bac+2 ou équivalent dans un domaine compatible."},
       {org:"EST Sidi Bennour",city:"Sidi Bennour",degree:"DBT",spec:"Ingénierie des Systèmes Informatiques et Technologies Web (ISITW)",status:"open",opening:"Non affichée",deadline:"15/09/2026",exam:"Non annoncé",link:"https://www.estsb.ucd.ac.ma/ouverture-des-pre-inscriptionsaux-diplomes-du-bachelor-en-technologieannee-universitaire-2026-2027/",source:"https://www.estsb.ucd.ac.ma/ouverture-des-pre-inscriptionsaux-diplomes-du-bachelor-en-technologieannee-universitaire-2026-2027/",notes:"Bac+2 ou équivalent dans un domaine compatible."},
-      {org:"EST Meknès",city:"Meknès",degree:"Bachelor Universitaire",spec:"Ingénierie Logicielle",status:"open",opening:"03/08/2026",deadline:"31/08/2026",exam:"Sélection sur dossier",link:"https://candidature.umi.ac.ma",source:"https://www.est.umi.ac.ma/categorie-actualite/vie-etudiante/",notes:"Bac+2 ou diplôme équivalent; équivalence du DTS à vérifier sur la plateforme."},
-      {org:"EST Meknès",city:"Meknès",degree:"Bachelor Universitaire",spec:"Intelligence Artificielle et Sciences des Données",status:"open",opening:"03/08/2026",deadline:"31/08/2026",exam:"Sélection sur dossier",link:"https://candidature.umi.ac.ma",source:"https://www.est.umi.ac.ma/categorie-actualite/vie-etudiante/",notes:"Bac+2 ou diplôme équivalent; équivalence du DTS à vérifier sur la plateforme."},
-      {org:"EST Meknès",city:"Meknès",degree:"Bachelor Universitaire",spec:"Ingénierie du Développement Mobile et Internet des Objets",status:"open",opening:"03/08/2026",deadline:"31/08/2026",exam:"Sélection sur dossier",link:"https://candidature.umi.ac.ma",source:"https://www.est.umi.ac.ma/categorie-actualite/vie-etudiante/",notes:"Bac+2 ou diplôme équivalent; équivalence du DTS à vérifier sur la plateforme."},
-      {org:"Faculté des Sciences d'Agadir",city:"Agadir",degree:"Licence d'Excellence",spec:"Ingénierie Logicielle",status:"open",opening:"01/08/2026",deadline:"06/09/2026",exam:"21–26/09/2026",link:"https://preinscription.uiz.ac.ma/",source:"https://www.licence-professionnelle-maroc.com/2026/08/licence-dexcellence-fs-agadir-2026-2027.html",notes:"Bac+2 DEUG ou équivalent en informatique/domaine connexe."},
-      {org:"Faculté des Sciences d'Agadir",city:"Agadir",degree:"Licence d'Excellence",spec:"Analytique des Données et Intelligence Artificielle",status:"open",opening:"01/08/2026",deadline:"06/09/2026",exam:"21–26/09/2026",link:"https://preinscription.uiz.ac.ma/",source:"https://www.licence-professionnelle-maroc.com/2026/08/licence-dexcellence-fs-agadir-2026-2027.html",notes:"Bac+2 DEUG ou équivalent en informatique/domaine connexe."},
-      {org:"Faculté des Sciences d'Agadir",city:"Agadir",degree:"Licence d'Excellence",spec:"Ingénierie Informatique et Systèmes Embarqués",status:"open",opening:"01/08/2026",deadline:"06/09/2026",exam:"21–26/09/2026",link:"https://preinscription.uiz.ac.ma/",source:"https://www.licence-professionnelle-maroc.com/2026/08/licence-dexcellence-fs-agadir-2026-2027.html",notes:"Bac+2 DEUG ou équivalent en informatique/domaine connexe."},
-      {org:"Faculté des Sciences d'El Jadida",city:"El Jadida",degree:"Licence d'Excellence",spec:"Électronique et Informatique Industrielle",status:"open",opening:"05/08/2026",deadline:"06/09/2026",exam:"Non annoncé",link:"https://e-candidature.ucd.ac.ma/lexc/formations",source:"https://www.fs.ucd.ac.ma/licence-dexcellence/",notes:"Bac+2 ou équivalent compatible; prérequis et équivalence du DTS à confirmer."},
-      {org:"FS Ben M'Sik",city:"Casablanca",degree:"Licence d'Excellence",spec:"Intelligence Artificielle",status:"open",opening:"30/07/2026",deadline:"31/08/2026 à minuit",exam:"Non annoncé",link:"https://fsb.univh2c.ma/licenceexcellence/index.php?action=viriflogin&controller=home",source:"https://www.licence-professionnelle-maroc.com/2026/07/licence-dexcellence-fs-ben-msik-2026-2027.html",notes:"DEUG MIP/INFO, DEUG IA, DEUST MIP ou équivalent; équivalence du DTS à confirmer."},
-      {org:"Faculté Polydisciplinaire de Khouribga",city:"Khouribga",degree:"Licence d'Excellence",spec:"Systèmes d'Information et Intelligence Artificielle",status:"open",opening:"07/08/2026",deadline:"07/09/2026",exam:"Non annoncé",link:"https://www.fpk.ac.ma/preinscription/",source:"https://www.licence-professionnelle-maroc.com/2026/08/licence-dexcellence-fp-khouribga-2026.html",notes:"DEUG Info/Math, DEUST MIP, DEUP Info ou équivalent; équivalence du DTS à confirmer."},
+      {org:"EST Meknès",city:"Meknès",degree:"Bachelor Universitaire",spec:"Ingénierie Logicielle",status:"closed",opening:"03/08/2026",deadline:"31/08/2026",exam:"Sélection sur dossier",link:"https://candidature.umi.ac.ma",source:"https://www.est.umi.ac.ma/categorie-actualite/vie-etudiante/",notes:"Bac+2 ou diplôme équivalent; équivalence du DTS à vérifier sur la plateforme."},
+      {org:"EST Meknès",city:"Meknès",degree:"Bachelor Universitaire",spec:"Intelligence Artificielle et Sciences des Données",status:"closed",opening:"03/08/2026",deadline:"31/08/2026",exam:"Sélection sur dossier",link:"https://candidature.umi.ac.ma",source:"https://www.est.umi.ac.ma/categorie-actualite/vie-etudiante/",notes:"Bac+2 ou diplôme équivalent; équivalence du DTS à vérifier sur la plateforme."},
+      {org:"EST Meknès",city:"Meknès",degree:"Bachelor Universitaire",spec:"Ingénierie du Développement Mobile et Internet des Objets",status:"closed",opening:"03/08/2026",deadline:"31/08/2026",exam:"Sélection sur dossier",link:"https://candidature.umi.ac.ma",source:"https://www.est.umi.ac.ma/categorie-actualite/vie-etudiante/",notes:"Bac+2 ou diplôme équivalent; équivalence du DTS à vérifier sur la plateforme."},
+      {org:"Faculté des Sciences d'Agadir",city:"Agadir",degree:"Licence d'Excellence",spec:"Ingénierie Logicielle",status:"closed",opening:"01/08/2026",deadline:"06/09/2026",exam:"21–26/09/2026",link:"https://preinscription.uiz.ac.ma/",source:"https://www.licence-professionnelle-maroc.com/2026/08/licence-dexcellence-fs-agadir-2026-2027.html",notes:"Bac+2 DEUG ou équivalent en informatique/domaine connexe."},
+      {org:"Faculté des Sciences d'Agadir",city:"Agadir",degree:"Licence d'Excellence",spec:"Analytique des Données et Intelligence Artificielle",status:"closed",opening:"01/08/2026",deadline:"06/09/2026",exam:"21–26/09/2026",link:"https://preinscription.uiz.ac.ma/",source:"https://www.licence-professionnelle-maroc.com/2026/08/licence-dexcellence-fs-agadir-2026-2027.html",notes:"Bac+2 DEUG ou équivalent en informatique/domaine connexe."},
+      {org:"Faculté des Sciences d'Agadir",city:"Agadir",degree:"Licence d'Excellence",spec:"Ingénierie Informatique et Systèmes Embarqués",status:"closed",opening:"01/08/2026",deadline:"06/09/2026",exam:"21–26/09/2026",link:"https://preinscription.uiz.ac.ma/",source:"https://www.licence-professionnelle-maroc.com/2026/08/licence-dexcellence-fs-agadir-2026-2027.html",notes:"Bac+2 DEUG ou équivalent en informatique/domaine connexe."},
+      {org:"Faculté des Sciences d'El Jadida",city:"El Jadida",degree:"Licence d'Excellence",spec:"Électronique et Informatique Industrielle",status:"closed",opening:"05/08/2026",deadline:"06/09/2026",exam:"Non annoncé",link:"https://e-candidature.ucd.ac.ma/lexc/formations",source:"https://www.fs.ucd.ac.ma/licence-dexcellence/",notes:"Bac+2 ou équivalent compatible; prérequis et équivalence du DTS à confirmer."},
+      {org:"FS Ben M'Sik",city:"Casablanca",degree:"Licence d'Excellence",spec:"Intelligence Artificielle",status:"closed",opening:"30/07/2026",deadline:"31/08/2026 à minuit",exam:"Non annoncé",link:"https://fsb.univh2c.ma/licenceexcellence/index.php?action=viriflogin&controller=home",source:"https://www.licence-professionnelle-maroc.com/2026/07/licence-dexcellence-fs-ben-msik-2026-2027.html",notes:"DEUG MIP/INFO, DEUG IA, DEUST MIP ou équivalent; équivalence du DTS à confirmer."},
+      {org:"Faculté Polydisciplinaire de Khouribga",city:"Khouribga",degree:"Licence d'Excellence",spec:"Systèmes d'Information et Intelligence Artificielle",status:"closed",opening:"07/08/2026",deadline:"07/09/2026",exam:"Non annoncé",link:"https://www.fpk.ac.ma/preinscription/",source:"https://www.licence-professionnelle-maroc.com/2026/08/licence-dexcellence-fp-khouribga-2026.html",notes:"DEUG Info/Math, DEUST MIP, DEUP Info ou équivalent; équivalence du DTS à confirmer."},
       {org:"Faculté Polydisciplinaire de Sidi Bennour",city:"Sidi Bennour",degree:"Licence S5",spec:"Cyber Sécurité et Confiance Numérique",status:"open",opening:"12/08/2026",deadline:"13/09/2026",exam:"Dossier uniquement",link:"https://e-candidature.ucd.ac.ma/",source:"https://www.fpsb.ucd.ac.ma/?p=23170",notes:"Adéquation forte: DTS en informatique explicitement accepté; résultats après le 15/09."},
       {org:"Faculté Polydisciplinaire de Sidi Bennour",city:"Sidi Bennour",degree:"Licence S5",spec:"Business Intelligence et Big Data",status:"open",opening:"12/08/2026",deadline:"13/09/2026",exam:"Dossier uniquement",link:"https://e-candidature.ucd.ac.ma/",source:"https://www.fpsb.ucd.ac.ma/?p=23170",notes:"Adéquation forte: DTS en informatique explicitement accepté; résultats après le 15/09."},
       {org:"Faculté Polydisciplinaire de Sidi Bennour",city:"Sidi Bennour",degree:"Licence S5",spec:"Développement Logiciel",status:"open",opening:"12/08/2026",deadline:"13/09/2026",exam:"Dossier uniquement",link:"https://e-candidature.ucd.ac.ma/",source:"https://www.fpsb.ucd.ac.ma/?p=23170",notes:"Adéquation forte: DTS en informatique explicitement accepté; résultats après le 15/09."},
-      {org:"Faculté Polydisciplinaire de Sidi Bennour",city:"Sidi Bennour",degree:"Licence S5",spec:"Géoinformatique Appliquée",status:"open",opening:"12/08/2026",deadline:"13/09/2026",exam:"Dossier uniquement",link:"https://e-candidature.ucd.ac.ma/",source:"https://www.fpsb.ucd.ac.ma/?p=23170",notes:"Filière numérique géospatiale; DTS en informatique explicitement accepté."}
+      {org:"Faculté Polydisciplinaire de Sidi Bennour",city:"Sidi Bennour",degree:"Licence S5",spec:"Géoinformatique Appliquée",status:"open",opening:"12/08/2026",deadline:"13/09/2026",exam:"Dossier uniquement",link:"https://e-candidature.ucd.ac.ma/",source:"https://www.fpsb.ucd.ac.ma/?p=23170",notes:"Filière numérique géospatiale; DTS en informatique explicitement accepté."},
+      {org:"Faculté des Sciences de Meknès",city:"Meknès",degree:"Licence d'Excellence",spec:"Intelligence et Sécurité des Objets Connectés",status:"closed",opening:"01/08/2026",deadline:"08/09/2026",exam:"Écrit + entretien · dates non annoncées",link:"https://candidature.umi.ac.ma",source:"https://www.fs-umi.ac.ma/index.php/licence-parcours-dexcellence-intelligence-et-securite-des-objets-connectes/",notes:"Adéquation forte: DEUG informatique ou diplôme équivalent; équivalence du DTS à confirmer."},
+      {org:"Faculté des Sciences de Meknès",city:"Meknès",degree:"Licence d'Excellence",spec:"Sciences des Données et Intelligence Artificielle",status:"closed",opening:"01/08/2026",deadline:"08/09/2026",exam:"Écrit + entretien · dates non annoncées",link:"https://candidature.umi.ac.ma",source:"https://www.fs-umi.ac.ma/index.php/licence-parcours-dexcellence-sciences-des-donnees-et-intelligence-artificielle/",notes:"Sélection sur le diplôme, la moyenne des 4 semestres et les notes en mathématiques/informatique."},
+      {org:"Faculté des Sciences de Meknès",city:"Meknès",degree:"Licence d'Excellence",spec:"Systèmes Intelligents et Recherche Opérationnelle",status:"closed",opening:"01/08/2026",deadline:"08/09/2026",exam:"Écrit + entretien · dates non annoncées",link:"https://candidature.umi.ac.ma",source:"https://www.fs-umi.ac.ma/index.php/licence-parcours-dexcellence-systemes-intelligents-et-recherche-operationnelle/",notes:"Parcours S5 informatique; prérequis détaillés et équivalence du DTS à confirmer."}
     ];
 
     const jobs = [
-      {org:"Province de Chichaoua – Commune ASSIF EL MAL",city:"Chichaoua",grade:"Technicien 3e grade · Échelle 9",spec:"Développement / Réseau / Système informatique",posts:2,status:"open",publication:"17/08/2026",deadline:"10/09/2026 à 16h30",exam:"20/09/2026",link:"https://www.emploi-public.ma/fr/concours/details/6e995ea7-7465-41ef-96d2-8777effec666",notes:"C43279/26. Avis multi-spécialités: choisir l'option informatique; 2 postes au total."},
+      {org:"Province de Ouezzane – Commune SIDI AHMED CHERIF",city:"Ouezzane",grade:"Technicien 3e grade · Échelle 9",spec:"Réseaux et développement informatique",posts:2,status:"open",publication:"01/09/2026",deadline:"28/09/2026 à 16h30",exam:"17/10/2026",link:"https://www.emploi-public.ma/fr/concours/details/180e1e5d-472d-4cea-a00e-a623beecf83c",notes:"C43352/26. Priorité régionale; avis multi-spécialités, 2 postes au total."},
+      {org:"Province de Chichaoua – Commune ADASSIL",city:"Chichaoua",grade:"Technicien 3e grade · Échelle 9",spec:"Développement / Système / Réseaux informatiques",posts:2,status:"open",publication:"04/09/2026",deadline:"09/10/2026 à 16h30",exam:"18/10/2026",link:"https://www.emploi-public.ma/fr/concours/details/8d0939b8-ee12-4281-8507-230affe85ec8",notes:"C43389/26. 2 postes au total."},
+      {org:"Province de Berkane – Commune SAIDIA",city:"Saïdia",grade:"Technicien 3e grade · Échelle 9",spec:"Développement informatique et réseaux",posts:2,status:"open",publication:"04/09/2026",deadline:"25/09/2026 à 16h30",exam:"11/10/2026",link:"https://www.emploi-public.ma/fr/concours/details/6543acce-19a1-4b46-bd60-0bdb209fd541",notes:"C43396/26. Avis multi-spécialités: 5 postes au total, dont 2 en développement informatique et réseaux."},
+      {org:"Province de Chichaoua – Commune ASSIF EL MAL",city:"Chichaoua",grade:"Technicien 3e grade · Échelle 9",spec:"Développement / Réseau / Système informatique",posts:2,status:"closed",publication:"17/08/2026",deadline:"10/09/2026 à 16h30",exam:"20/09/2026",link:"https://www.emploi-public.ma/fr/concours/details/6e995ea7-7465-41ef-96d2-8777effec666",notes:"C43279/26. Avis multi-spécialités: choisir l'option informatique; 2 postes au total."},
       {org:"Province de Chichaoua – Commune IMINDOUNIT",city:"Chichaoua",grade:"Technicien 3e grade · Échelle 9",spec:"Développement / Système / Réseaux informatiques",posts:2,status:"open",publication:"28/08/2026",deadline:"17/09/2026 à 16h30",exam:"27/09/2026",link:"https://www.emploi-public.ma/fr/concours/details/5d458ac0-79d2-4fa6-bcc2-e95e8d29bd6d",notes:"C43324/26. 2 postes au total."},
       {org:"Province de Chichaoua – Commune GMASSA",city:"Chichaoua",grade:"Technicien 3e grade · Échelle 9",spec:"Développement / Système / Réseaux informatiques",posts:2,status:"open",publication:"28/08/2026",deadline:"24/09/2026 à 16h30",exam:"04/10/2026",link:"https://www.emploi-public.ma/fr/concours/details/bf375814-b71a-478a-bb43-2e24de7377e0",notes:"C43325/26. 2 postes au total."},
       {org:"Province de Chichaoua – Commune NFIFA",city:"Chichaoua",grade:"Technicien 3e grade · Échelle 9",spec:"Développement / Système / Réseaux informatiques",posts:1,status:"open",publication:"28/08/2026",deadline:"09/10/2026 à 16h30",exam:"25/10/2026",link:"https://www.emploi-public.ma/fr/concours/details/a3367690-b2a8-4791-98cf-bfdb6af517b2",notes:"C43327/26."},
+      {org:"Province Nouaceur – Commune OULAD AZZOUZ",city:"Nouaceur",grade:"Technicien 3e grade · Échelle 9",spec:"Développement informatique",posts:1,status:"open",publication:"04/08/2026",deadline:"14/09/2026 à 16h30",exam:"18/10/2026",link:"https://www.emploi-public.ma/fr/concours/details/b0b416ee-bdd7-401f-aeb6-3284ea853aeb",notes:"C43050/26. Vérifier l'adéquation exacte du DTS Systèmes et Réseaux avec la spécialité demandée."},
       {org:"Province de Tétouan – Commune OUED LAOU",city:"Tétouan",grade:"Technicien 3e grade · Échelle 9",spec:"Maintenance informatique et réseaux",posts:4,status:"closed",publication:"10/08/2026",deadline:"28/08/2026 à 16h30",exam:"13/09/2026",link:"https://www.emploi-public.ma/fr/concours/details/908112c6-5a64-43dc-862f-fbb7d80a6f01",notes:"C43212/26. Priorité régionale; avis multi-spécialités, 4 postes au total."},
       {org:"Ministère des Affaires étrangères",city:"National",grade:"Technicien 3e grade · Échelle 9",spec:"Réseaux informatiques / Développement informatique",posts:32,status:"closed",publication:"25/07/2026",deadline:"10/08/2026 à 16h30",exam:"27/09/2026",link:"https://www.emploi-public.ma/fr/concours/details/4e64e78f-621d-4e95-a829-a8b22986502a",notes:"C43033/26. Avis multi-spécialités, 32 postes au total."},
       {org:"Province d'Essaouira – Commune KORIMATE",city:"Essaouira",grade:"Technicien 3e grade · Échelle 9",spec:"Informatique",posts:2,status:"closed",publication:"21/07/2026",deadline:"17/08/2026 à 16h30",exam:"06/09/2026",link:"https://www.emploi-public.ma/fr/concours/details/5cc415a7-19d4-48b3-aee7-ec03cae174f2",notes:"C42966/26. Avis multi-spécialités, 2 postes au total."},
@@ -157,16 +165,88 @@
       </tr>`).join("")}</tbody></table>`;
     }
 
+const offers = [
+{"org":"AFD.Tech part of Accenture","city":"Rabat","title":"Digital Workplace & ITSM — profils Junior (0–2 ans)","contract":"Temps plein — type de contrat non communiqué","mode":"Non communiqué","spec":"Administration / support Windows Server, Active Directory, GPO, PowerShell","posts":"Non communiqué","status":"open","publication":"Date exacte non communiquée — annonce récente","deadline":"Non communiqué","exam":"Dates non communiquées — échange RH puis entretien technique","salary":"Non communiqué","link":"https://ma.linkedin.com/jobs/view/ing%C3%A9nieurs-digital-workplace-itsm-h-f-at-afd-technologies-4463460046","notes":"Source employeur vérifiée le 11/09/2026; découverte Dreamjob. Volet junior uniquement. Bases AD/Windows Server et PowerShell compatibles avec le profil. Français professionnel exigé: niveau à confirmer. Intitulé Ingénieurs, mais aucun diplôme minimum explicite dans le descriptif; acceptation du DTS à confirmer. Certifications appréciées, non obligatoires.","verified":"11/09/2026"},
+{"org":"Office National Des Aéroports (ONDA)","city":"Maroc — affectation à confirmer","title":"Recrutement Bac+2 Informatique — BTS / DTS","contract":"Recrutement régulier","mode":"Non communiqué","spec":"BTS ou DTS Bac+2 en informatique, avec baccalauréat scientifique ou technique","posts":59,"status":"open","publication":"03/09/2026","deadline":"18/09/2026 à 23h00","exam":"Non communiqué sur la fiche","salary":"Non communiqué","verified":"10/09/2026","link":"https://www.emploi-public.ma/fr/concours/details/f7c3ee35-1531-4828-b2ce-c4c9637eafd4","notes":"C43380/26. Formation correspondant au DTS et Bac Sciences Physiques; conditions personnelles et modalités détaillées à vérifier dans l’arrêté. Candidature : https://econcours.brainman.ma/cmp/ONDA_2026 (portail momentanément inaccessible lors du contrôle)."},
+{"org":"Xiezhong Morocco","city":"Kénitra","title":"Stagiaire IT Support","contract":"Stage","mode":"Sur site","spec":"Support informatique, assistance utilisateurs; Bac+2 ou plus en Informatique, Systèmes et Réseaux ou équivalent","posts":"Non communiqué","status":"open","publication":"Date exacte non communiquée (publication récente)","deadline":"Non communiqué","exam":"Non communiqué","salary":"Non communiqué","verified":"08/09/2026","link":"https://fr.linkedin.com/posts/xiezhong-morocco-31b4a2189_offre-de-stages-it-support-ressources-activity-7502747635066368000-TvP7","notes":"Disponibilité immédiate. Candidature par CV à xiezhongmar@njxiezhong.com (aucun envoi effectué). Source employeur vérifiée; découverte Dreamjob. Nombre de places IT et durée du stage non précisés."},
+  {
+    "org": "Novec",
+    "city": "Salé — Technopolis",
+    "title": "Technicien(ne) Support Informatique",
+    "contract": "CDI",
+    "mode": "Sur site",
+    "spec": "Support N1/N2, Windows, Microsoft 365, Active Directory, VLAN, DNS, DHCP",
+    "posts": 2,
+    "status": "open",
+    "publication": "16/07/2026",
+    "deadline": "16/09/2026",
+    "exam": "Non communiqué",
+    "salary": "Non communiqué",
+    "verified": "06/09/2026",
+    "link": "https://www.rekrute.com/offre-emploi-technicienne-support-informatique-recrutement-novec-sale-technopolis-184613.html",
+    "notes": "Bac+2/3 en informatique, systèmes, réseaux ou équivalent. Première expérience appréciée. Bonne adéquation technique; rubrique Junior 1–3 ans, mais descriptif sans minimum ferme."
+  },
+  {
+    "org": "Manpower Agences",
+    "city": "Nouaceur — Casablanca",
+    "title": "Technicien IT",
+    "contract": "CDD",
+    "mode": "Sur site",
+    "spec": "Installation Windows, configuration réseau, dépannage et déploiement de postes",
+    "posts": 1,
+    "status": "open",
+    "publication": "Date exacte non confirmée",
+    "deadline": "01/10/2026",
+    "exam": "Non communiqué",
+    "salary": "Non communiqué",
+    "verified": "06/09/2026",
+    "link": "https://www.rekrute.com/offre-emploi-technicien-it-recrutement-manpower-agences-casablanca-185180.html",
+    "notes": "Bac+2 minimum; première expérience support appréciée. Compétences cohérentes avec le DTS. Rubrique Junior 1–3 ans; date relative de publication incohérente avec la liste."
+  },
+  {
+    "org": "CNSS",
+    "city": "Maroc — affectation à confirmer",
+    "title": "Techniciens Spécialisés — Systèmes et Réseaux",
+    "contract": "Recrutement régulier",
+    "mode": "Non communiqué",
+    "spec": "Systèmes et Réseaux",
+    "posts": 10,
+    "status": "open",
+    "publication": "31/08/2026",
+    "deadline": "15/09/2026",
+    "exam": "Non communiqué",
+    "salary": "Non communiqué",
+    "verified": "06/09/2026",
+    "link": "https://www.emploi-public.ma/fr/concours/details/c878a313-41b0-4d4e-b534-ce5a1329083d",
+    "notes": "Spécialité correspondant au DTS. Conditions personnelles (âge, moyenne et diplôme exact) à vérifier dans l’arrêté. Dépôt via le portail de recrutement lié dans l’avis."
+  }
+];
+
+    function offerTable(rows) {
+      const intro = '<p style="padding:14px;margin:0">Source de découverte : <a target="_blank" rel="noopener" href="https://www.dreamjob.ma/">Dreamjob Maroc ↗</a>, puis vérification employeur. CDI, CDD, stages, alternance, intérim, freelance et temps partiel · Sur site, hybride ou à distance depuis le Maroc. Veille programmée à 08h00 et 20h00 (heure du Maroc). Dates absentes : « Non communiqué ». Adéquation technique estimée selon le CV; conditions à relire avant candidature.</p>';
+      if (!rows.length) return intro + '<div class="empty">Aucune offre ne correspond à ces filtres.</div>';
+      return intro + `<table><thead><tr><th>Entreprise / ville</th><th>Poste / contrat</th><th>Statut</th><th>Calendrier</th><th>Adéquation / conditions</th><th>Action</th></tr></thead><tbody>${rows.map(r=>`<tr><td><div class="primary">${r.org}</div>${r.city}</td><td><div class="primary">${r.title}</div>${r.contract} · ${r.mode}<br>${r.posts} poste(s)<br>Salaire : ${r.salary}</td><td>${statusBadge(r.status)}</td><td>Publication : ${r.publication}<br><strong>Limite : ${r.deadline}</strong><br>Épreuve : ${r.exam}<br>Vérifié : ${r.verified}</td><td>${r.spec}<br>${r.notes}</td><td><a class="action primary-action" target="_blank" rel="noopener" href="${safeUrl(r.link)}">Voir et postuler ↗</a></td></tr>`).join('')}</tbody></table>`;
+    }
+
+    const international = [];
+    const abroadTab = document.createElement('button');
+    abroadTab.className = 'tab'; abroadTab.dataset.tab = 'international'; abroadTab.textContent = '🌍 International & Immigration';
+    document.querySelector('.tab').parentElement.appendChild(abroadTab);
+    function internationalTable(rows) {
+      const intro = '<p style="padding:14px;margin:0">Emplois IT à l’étranger · Vérification à 08h00 et 20h00 (Maroc). Pays, langues/niveau requis, diplôme et expérience, visa/permis et aide à la mobilité, salaire, publication, échéance, entretien et candidature directe seront suivis. Français et anglais : niveaux à confirmer. Une offre ne garantit pas un visa.</p><p style="padding:0 14px">Découverte : <a target="_blank" rel="noopener" href="https://www.jobbank.gc.ca/findajob/foreign-candidates">Canada — Job Bank candidats étrangers ↗</a> · <a target="_blank" rel="noopener" href="https://www.make-it-in-germany.com/en/working-in-germany/job-listings">Allemagne — Make it in Germany ↗</a> · Sites carrières employeurs · Validation employeur et règles de permis sur les sites gouvernementaux.</p>';
+      if (!rows.length) return intro + '<div class="empty">Aucune offre internationale compatible entièrement vérifiée pour le moment. Les offres nécessitant un permis local déjà détenu sont exclues; les conditions linguistiques restent à confirmer.</div>';
+      return intro + `<table><thead><tr><th>Employeur / pays</th><th>Poste / contrat</th><th>Langues / profil</th><th>Visa / mobilité</th><th>Dates / statut</th><th>Candidature</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r.org}<br>${r.city}</td><td>${r.title}<br>${r.contract} · ${r.mode}<br>Salaire : ${r.salary || 'Non communiqué'}</td><td>${r.spec}<br>${r.languages || 'À confirmer'}<br>${r.notes || ''}</td><td>${r.visa || 'Non confirmé'}<br><a href="${safeUrl(r.visaProof || r.link)}" target="_blank" rel="noopener">Vérifier les conditions ↗</a></td><td>${statusBadge(r.status)}<br>Publication : ${r.publication}<br>Limite : ${r.deadline}<br>Entretien : ${r.exam}<br>Vérifié : ${r.verified}</td><td><a class="action primary-action" href="${safeUrl(r.link)}" target="_blank" rel="noopener">Voir et postuler ↗</a></td></tr>`).join('')}</tbody></table>`;
+    }
     function render() {
-      const all = state.tab === "schools" ? schools : jobs;
+      const all = state.tab === "schools" ? schools : state.tab === "offers" ? offers : state.tab === "international" ? international : jobs;
       const query = norm(state.query);
       const shown = all.filter(r => (state.status === "all" || r.status === state.status) && (!query || norm(Object.values(r).join(" ")).includes(query)));
       document.getElementById("kpi-total").textContent = all.length;
       document.getElementById("kpi-open").textContent = all.filter(r=>r.status==="open").length;
       document.getElementById("kpi-closed").textContent = all.filter(r=>r.status==="closed").length;
-      document.getElementById("section-title").textContent = state.tab === "schools" ? "Écoles & Admissions" : "Emploi Public — Concours";
+      document.getElementById("section-title").textContent = state.tab === "schools" ? "Écoles & Admissions" : state.tab === "offers" ? "Offres d’emploi IT — Tous contrats" : state.tab === "international" ? "International & Immigration" : "Emploi Public — Concours";
       document.getElementById("result-count").textContent = `${shown.length} résultat${shown.length > 1 ? "s" : ""} affiché${shown.length > 1 ? "s" : ""}`;
-      document.getElementById("table-wrap").innerHTML = state.tab === "schools" ? schoolTable(shown) : jobTable(shown);
+      document.getElementById("table-wrap").innerHTML = state.tab === "schools" ? schoolTable(shown) : state.tab === "offers" ? offerTable(shown) : state.tab === "international" ? internationalTable(shown) : jobTable(shown);
     }
 
     document.querySelectorAll(".tab").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll(".tab").forEach(b=>b.classList.remove("active"));btn.classList.add("active");state.tab=btn.dataset.tab;render();}));
@@ -176,3 +256,4 @@
   </script>
 </body>
 </html>
+

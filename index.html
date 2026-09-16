@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Tableau de bord des admissions Bac+2 et concours publics IT au Maroc, profil DTS Infrastructure Digitale.">
-  <title>Veille IT Maroc — Admissions & Concours</title>
+  <title>Veille IT Maroc — Emploi & Concours</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root { --ink:#102a43; --muted:#627d98; --line:#d9e2ec; --brand:#2463a7; --brand2:#0b7a75; --paper:#fff; --bg:#f4f7fb; --open:#087f5b; --closed:#c92a2a; }
@@ -57,15 +57,14 @@
     <section class="hero">
       <div class="eyebrow">Veille académique & carrière</div>
       <h1>Opportunités IT au Maroc</h1>
-      <p>Admissions Bac+2 / passerelle S5 et concours de Technicien de 3e grade — filtrés pour un DTS Infrastructure Digitale, option Systèmes & Réseaux. Les disciplines non informatiques sont exclues.</p>
-      <div class="updated">● Vérifié le 15 septembre 2026 · Priorité Tanger–Tétouan–Al Hoceïma</div>
+      <p>Offres d’emploi IT à Tanger et concours publics de Technicien de 3e grade — filtrés pour un DTS Infrastructure Digitale, option Systèmes & Réseaux. Les disciplines non informatiques sont exclues.</p>
+      <div class="updated">● Vérifié le 16 septembre 2026 · Périmètre offres : Tanger</div>
     </section>
 
     <section class="panel" aria-label="Tableau de bord">
       <nav class="tabs" aria-label="Type d'opportunité">
-        <button class="tab active" data-tab="schools">🎓 Écoles & Admissions</button>
         <button class="tab" data-tab="jobs">🏛️ Emploi Public</button>
-        <button class="tab" data-tab="offers">💼 Offres d’emploi IT</button>
+        <button class="tab active" data-tab="offers">💼 Offres IT — Tanger</button>
       </nav>
 
       <div class="controls">
@@ -84,7 +83,7 @@
       </div>
 
       <div class="results-head">
-        <div><h2 id="section-title">Écoles & Admissions</h2><p id="result-count"></p></div>
+        <div><h2 id="section-title">Offres IT — Tanger</h2><p id="result-count"></p></div>
         <p>Cliquer sur « Candidater » ou « Voir l'avis » ouvre la page officielle.</p>
       </div>
       <div class="table-wrap" id="table-wrap"></div>
@@ -143,7 +142,7 @@
       {org:"Université Ibn Zohr – FSJP Agadir",city:"Agadir",grade:"Technicien 3e grade · Échelle 9",spec:"Informatique",posts:1,status:"open",publication:"07/09/2026",deadline:"23/09/2026",exam:"04/10/2026",link:"https://www.emploi-public.ma/fr/concours/details/a02d16a8-1796-4ed4-9fb7-a472036054e2",notes:"C43460/26. Spécialité informatique; dépôt en ligne via recrutement.enssup.gov.ma."}
     ];
 
-    const state = { tab:"schools", status:"all", query:"" };
+    const state = { tab:"offers", status:"all", query:"" };
     const norm = value => String(value ?? "").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
     const statusBadge = status => `<span class="badge ${status}">${status === "open" ? "● Ouvert" : "● Clôturé"}</span>`;
     const safeUrl = value => /^https:\/\//.test(value) ? value : "#";
@@ -173,6 +172,9 @@
     }
 
 const offers = [
+{"org":"Nindohost","city":"Tanger","title":"Administrateur Système Junior","contract":"CDI","mode":"Sur site / télétravail possible","spec":"Linux, SSH, VMware/Xen/KVM, DNS, IPv4, MySQL/MariaDB, cPanel/WHM","posts":"Non communiqué","status":"open","publication":"Non communiqué — page carrière actuelle","deadline":"Non communiqué","exam":"Non communiqué","salary":"Selon le profil","link":"https://nindohost.ma/a-propos/carrieres/administrateur-systeme/","notes":"Bonne adéquation systèmes/réseaux/Linux/virtualisation. Exigence affichée : 1 an minimum d’expérience en administration système; à confirmer au tri.","verified":"16/09/2026"},
+{"org":"Eaton","city":"Tanger","title":"Technicien Helpdesk — Niveau 1","contract":"CDD 6 mois","mode":"Sur site","spec":"Support N1, TCP/IP, DNS, DHCP, Active Directory, Windows Server, LAN/VLAN, ServiceNow","posts":"Non communiqué","status":"closed","publication":"Annonce ancienne — date exacte non communiquée","deadline":"Clôturée — LinkedIn n’accepte plus les candidatures","exam":"Non communiqué","salary":"Non communiqué","link":"https://ma.linkedin.com/jobs/view/technicien-helpdesk-niveau-1-cdd-de-6-mois-h-f-at-eaton-4340592400","notes":"Très bonne correspondance Bac+2 informatique et réseaux; candidature fermée selon la page LinkedIn.","verified":"16/09/2026"},
+{"org":"ManpowerGroup Maroc","city":"Tanger","title":"Technicien IT","contract":"CDI","mode":"Sur site","spec":"Installation/maintenance, support N1/N2, LAN/WAN/Wi-Fi, Windows, TCP/IP, DNS, DHCP","posts":1,"status":"closed","publication":"Annonce ancienne — date exacte non communiquée","deadline":"Clôturée — LinkedIn n’accepte plus les candidatures","exam":"Non communiqué","salary":"Non communiqué","link":"https://ma.linkedin.com/jobs/view/technicien-it-%E2%80%93-tanger-%E2%80%93-cdi-at-manpowergroup-maroc-4401710663","notes":"Bonne correspondance Bac+2 systèmes/réseaux; l’annonce affichait 1–3 ans d’expérience et la candidature est fermée.","verified":"16/09/2026"},
 {"org":"AFD.Tech part of Accenture","city":"Rabat","title":"Digital Workplace & ITSM — profils Junior (0–2 ans)","contract":"Temps plein — type de contrat non communiqué","mode":"Non communiqué","spec":"Administration / support Windows Server, Active Directory, GPO, PowerShell","posts":"Non communiqué","status":"open","publication":"Date exacte non communiquée — annonce récente","deadline":"Non communiqué","exam":"Dates non communiquées — échange RH puis entretien technique","salary":"Non communiqué","link":"https://ma.linkedin.com/jobs/view/ing%C3%A9nieurs-digital-workplace-itsm-h-f-at-afd-technologies-4463460046","notes":"Source employeur vérifiée le 11/09/2026; découverte Dreamjob. Volet junior uniquement. Bases AD/Windows Server et PowerShell compatibles avec le profil. Français professionnel exigé: niveau à confirmer. Intitulé Ingénieurs, mais aucun diplôme minimum explicite dans le descriptif; acceptation du DTS à confirmer. Certifications appréciées, non obligatoires.","verified":"11/09/2026"},
 {"org":"Office National Des Aéroports (ONDA)","city":"Maroc — affectation à confirmer","title":"Recrutement Bac+2 Informatique — BTS / DTS","contract":"Recrutement régulier","mode":"Non communiqué","spec":"BTS ou DTS Bac+2 en informatique, avec baccalauréat scientifique ou technique","posts":59,"status":"open","publication":"03/09/2026","deadline":"18/09/2026 à 23h00","exam":"Non communiqué sur la fiche","salary":"Non communiqué","verified":"10/09/2026","link":"https://www.emploi-public.ma/fr/concours/details/f7c3ee35-1531-4828-b2ce-c4c9637eafd4","notes":"C43380/26. Formation correspondant au DTS et Bac Sciences Physiques; conditions personnelles et modalités détaillées à vérifier dans l’arrêté. Candidature : https://econcours.brainman.ma/cmp/ONDA_2026 (portail momentanément inaccessible lors du contrôle)."},
 {"org":"Xiezhong Morocco","city":"Kénitra","title":"Stagiaire IT Support","contract":"Stage","mode":"Sur site","spec":"Support informatique, assistance utilisateurs; Bac+2 ou plus en Informatique, Systèmes et Réseaux ou équivalent","posts":"Non communiqué","status":"open","publication":"Date exacte non communiquée (publication récente)","deadline":"Non communiqué","exam":"Non communiqué","salary":"Non communiqué","verified":"08/09/2026","link":"https://fr.linkedin.com/posts/xiezhong-morocco-31b4a2189_offre-de-stages-it-support-ressources-activity-7502747635066368000-TvP7","notes":"Disponibilité immédiate. Candidature par CV à xiezhongmar@njxiezhong.com (aucun envoi effectué). Source employeur vérifiée; découverte Dreamjob. Nombre de places IT et durée du stage non précisés."},
@@ -230,7 +232,7 @@ const offers = [
 ];
 
     function offerTable(rows) {
-      const intro = '<p style="padding:14px;margin:0">Source de découverte : <a target="_blank" rel="noopener" href="https://www.dreamjob.ma/">Dreamjob Maroc ↗</a>, puis vérification employeur. CDI, CDD, stages, alternance, intérim, freelance et temps partiel · Sur site, hybride ou à distance depuis le Maroc. Veille programmée à 08h00 et 20h00 (heure du Maroc). Dates absentes : « Non communiqué ». Adéquation technique estimée selon le CV; conditions à relire avant candidature.</p>';
+      const intro = '<p style="padding:14px;margin:0">Périmètre : Tanger uniquement. Découverte via portails emploi et vérification sur la page originale de l’employeur ou du recruteur. CDI, CDD, stages, alternance, intérim, freelance et temps partiel · Sur site, hybride ou à distance depuis le Maroc. Veille programmée à 08h00 et 20h00 (heure du Maroc). Dates absentes : « Non communiqué ». Adéquation technique estimée selon le CV; conditions à relire avant candidature.</p>';
       if (!rows.length) return intro + '<div class="empty">Aucune offre ne correspond à ces filtres.</div>';
       return intro + `<table><thead><tr><th>Entreprise / ville</th><th>Poste / contrat</th><th>Statut</th><th>Calendrier</th><th>Adéquation / conditions</th><th>Action</th></tr></thead><tbody>${rows.map(r=>`<tr><td><div class="primary">${r.org}</div>${r.city}</td><td><div class="primary">${r.title}</div>${r.contract} · ${r.mode}<br>${r.posts} poste(s)<br>Salaire : ${r.salary}</td><td>${statusBadge(r.status)}</td><td>Publication : ${r.publication}<br><strong>Limite : ${r.deadline}</strong><br>Épreuve : ${r.exam}<br>Vérifié : ${r.verified}</td><td>${r.spec}<br>${r.notes}</td><td><a class="action primary-action" target="_blank" rel="noopener" href="${safeUrl(r.link)}">Voir et postuler ↗</a></td></tr>`).join('')}</tbody></table>`;
     }
@@ -245,15 +247,15 @@ const offers = [
       return intro + `<table><thead><tr><th>Employeur / pays</th><th>Poste / contrat</th><th>Langues / profil</th><th>Visa / mobilité</th><th>Dates / statut</th><th>Candidature</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r.org}<br>${r.city}</td><td>${r.title}<br>${r.contract} · ${r.mode}<br>Salaire : ${r.salary || 'Non communiqué'}</td><td>${r.spec}<br>${r.languages || 'À confirmer'}<br>${r.notes || ''}</td><td>${r.visa || 'Non confirmé'}<br><a href="${safeUrl(r.visaProof || r.link)}" target="_blank" rel="noopener">Vérifier les conditions ↗</a></td><td>${statusBadge(r.status)}<br>Publication : ${r.publication}<br>Limite : ${r.deadline}<br>Entretien : ${r.exam}<br>Vérifié : ${r.verified}</td><td><a class="action primary-action" href="${safeUrl(r.link)}" target="_blank" rel="noopener">Voir et postuler ↗</a></td></tr>`).join('')}</tbody></table>`;
     }
     function render() {
-      const all = state.tab === "schools" ? schools : state.tab === "offers" ? offers : state.tab === "international" ? international : jobs;
+      const all = state.tab === "offers" ? offers.filter(r=>norm(r.city).includes("tanger")) : state.tab === "international" ? international : jobs;
       const query = norm(state.query);
       const shown = all.filter(r => (state.status === "all" || r.status === state.status) && (!query || norm(Object.values(r).join(" ")).includes(query)));
       document.getElementById("kpi-total").textContent = all.length;
       document.getElementById("kpi-open").textContent = all.filter(r=>r.status==="open").length;
       document.getElementById("kpi-closed").textContent = all.filter(r=>r.status==="closed").length;
-      document.getElementById("section-title").textContent = state.tab === "schools" ? "Écoles & Admissions" : state.tab === "offers" ? "Offres d’emploi IT — Tous contrats" : state.tab === "international" ? "International & Immigration" : "Emploi Public — Concours";
+      document.getElementById("section-title").textContent = state.tab === "offers" ? "Offres IT — Tanger" : state.tab === "international" ? "International & Immigration" : "Emploi Public — Concours";
       document.getElementById("result-count").textContent = `${shown.length} résultat${shown.length > 1 ? "s" : ""} affiché${shown.length > 1 ? "s" : ""}`;
-      document.getElementById("table-wrap").innerHTML = state.tab === "schools" ? schoolTable(shown) : state.tab === "offers" ? offerTable(shown) : state.tab === "international" ? internationalTable(shown) : jobTable(shown);
+      document.getElementById("table-wrap").innerHTML = state.tab === "offers" ? offerTable(shown) : state.tab === "international" ? internationalTable(shown) : jobTable(shown);
     }
 
     document.querySelectorAll(".tab").forEach(btn=>btn.addEventListener("click",()=>{document.querySelectorAll(".tab").forEach(b=>b.classList.remove("active"));btn.classList.add("active");state.tab=btn.dataset.tab;render();}));
